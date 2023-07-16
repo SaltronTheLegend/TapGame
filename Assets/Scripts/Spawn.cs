@@ -11,7 +11,7 @@ public class Spawn : MonoBehaviour
     [SerializeField]
     Text scoreText;
 
-    public int TotalScore;
+    public int TotalScore = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +41,7 @@ public class Spawn : MonoBehaviour
                (Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0)).x);
 
             // X & Y coordinate for the position of frog
-            Vector2 spawnPosition = new Vector2(posX, posY);
+            Vector2 spawnPosition = new Vector2(posX, posY+3);
 
             // Instantiate the frog in that generated position
             Instantiate(Frog, spawnPosition, Quaternion.identity);

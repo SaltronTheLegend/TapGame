@@ -9,11 +9,16 @@ public class NewBehaviourScript : MonoBehaviour
 
     [SerializeField]
     GameObject WaterEffect;
-    public int TotalScore;
+
+    //Reference to the SoundManager Script
+    SoundManager soundManager;
+
+    public int TotalScore = 0;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        soundManager = GameObject.Find("SoundManagerObject").GetComponent<SoundManager>();
     }
 
     // Update is called once per frame
@@ -27,6 +32,8 @@ public class NewBehaviourScript : MonoBehaviour
         // this object was clicked
         TotalScore = PlayerPrefs.GetInt("Score ", 0);
         TotalScore++;
+
+        soundManager.playSound();
 
         PlayerPrefs.SetInt("Score ", TotalScore);
         PlayerPrefs.Save();
